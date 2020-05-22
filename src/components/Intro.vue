@@ -2,9 +2,8 @@
   <div class="intro">
     <div class="intro-inner">
       <h1>Daily<br>Report</h1>
-      <router-link 
-        class="button" :to="todayUrl"
-        >
+      <router-link
+        class="button" :to="todayUrl">
         START
       </router-link>
     </div>
@@ -24,16 +23,16 @@ export default {
       console.log(todayUrl)
       return `/day/${todayUrl}`;
       //return '/day/2018-01-01';
-    } 
+    }
   },
   data(){
     return{
-     
+
     }
   }
   ,
   props: {
-    
+
   }
 }
 </script>

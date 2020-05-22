@@ -1,7 +1,6 @@
 <template>
   <div class="score">
     <button v-for="button in buttons" @click="updatescore(button.score)" :key="button.score" :class="{'active':button.score === item.score}">{{button.label}}</button>
-    
   </div>
 </template>
 
@@ -13,7 +12,8 @@ export default {
     updatescore(score){
       console.log(score);
       console.log(this.item);
-      this.$emit('onUpdateScore',this.item,score); 
+      //부모 컴포넌트인 Day로 전송한다.
+      this.$emit('onUpdateScore',this.item,score);
     }
   },
   cmputed:{},

@@ -1,24 +1,23 @@
 <template>
   <div class="day">
     <h1 class="day-title">
-      {{ $route.paramsdate }}
+      {{ $route.params.date }}
     </h1>
-    <h1 class="day-list">
+    <ul class="day-list">
       <li v-for="item in items" :key="item.id" class="day-list-item">
-        <div class="time">
-          <h2>
-            {{item.id}}
-          </h2>
-        </div>
+        <div class="time"><h2> {{ item.id }} </h2></div>
         <div class="action">
             <input class="input" type="text" v-model="item.action" placeholder="한 일을 작성해주세요">
         </div>
         <div class="note">
           <textarea class="textarea" v-model="item.note" placeholder="노트를 작성해 주세요"></textarea>
         </div>
+        <div>
+        <!-- props로item을 준다. -->
         <day-score @onUpdateScore="onUpdateScore" :item="item"></day-score>
+        </div>
       </li>
-    </h1>
+    </ul>
   </div>
 </template>
 
@@ -27,6 +26,7 @@ import DayScore from './DayScore'
 export default {
   name: "Day",
   methods: {
+    //Day.vue에서 가져온다.
     onUpdateScore(item,score){
       item.score=score;
     }
@@ -46,21 +46,21 @@ export default {
         },
         {
           action: "",
-          id: "2018-04-01-08-11",
+          id: "2018-04-01-10-12",
           note: "",
           open: false,
           score: undefined,
         },
         {
           action: "",
-          id: "2018-04-01-08-12",
+          id: "2018-04-01-12-14",
           note: "",
           open: false,
           score: undefined,
         },
         {
           action: "",
-          id: "2018-04-01-08-10",
+          id: "2018-04-01-14-16",
           note: "",
           open: false,
           score: undefined,

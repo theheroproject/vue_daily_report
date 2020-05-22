@@ -11,10 +11,8 @@ export default {
   components:{
     Nav
   }
-  
 }
 </script>
-
 
 <style lang="scss" src="./assets/css/style.scss">
 </style>

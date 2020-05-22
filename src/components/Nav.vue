@@ -43,7 +43,7 @@ export default {
   cmputed:{},
   data(){
     return{
-     
+
     }
   }
   ,
