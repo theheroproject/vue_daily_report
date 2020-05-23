@@ -30,9 +30,10 @@
 </template>
 
 <script>
-import DayScore from './DayScore'
-import axios from 'axios'
-import moment from 'moment'
+import DayScore from './DayScore';
+import axios from 'axios';
+import moment from 'moment';
+import { mapGetters } from 'vuex';
 export default {
   name: "Day",
   methods: {
@@ -46,8 +47,8 @@ export default {
       //https://daily-report-df45f.firebaseio.com/items.json?orderBy="$key"&startAt="2018-09-11"&endAt="2018-09-11-22-44"
       //let url =  `https://daily-report-df45f.firebaseio.com/items.json?orderBy="$key"&startAt="2020-05-23"&endAt="2020-05-23-22-44"`
       //let url =  `https://daily-report-df45f.firebaseio.com/items.json?orderBy="$key"&startAt="2020-05-23"&endAt="2020-05-23-22-44"`
-      let test = `"$key"&startAt="${this.$route.params.date}"&endAt="${this.$route.params.date}-22-44"`;
-      let url = 'https://daily-report-df45f.firebaseio.com/items.json?orderBy=' + test ;
+      let time = `"$key"&startAt="${this.$route.params.date}"&endAt="${this.$route.params.date}-22-44"`;
+      let url = 'https://daily-report-df45f.firebaseio.com/items.json?orderBy=' + time ;
 
       axios.get(url).then((res) =>{
         this.items = this.displayItems(res.data);
@@ -55,7 +56,8 @@ export default {
       })
     },displayItems(result){
       let items = [];
-      let startTime = '08:00';
+      //let startTime = '08:00';
+      let startTime = this.savedSettings.starttime;
 
       for (let i=0; i < 12; i++){
         let datetime = moment(this.$route.params.date + ' ' + startTime);
@@ -107,7 +109,9 @@ export default {
       this.getItems();
       console.log(to,from);
     }
-  },
+  },computed:{
+    ...mapGetters(['savedSettings'])
+  }
 };
 </script>
 
