@@ -14,7 +14,7 @@
         "@fullcalendar/list": "^4.4.0",
         "@fullcalendar/timegrid": "^4.4.0",
         "@fullcalendar/vue": "^4.4.0",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "core-js": "^3.6.4",
         "fullcalendar-scheduler": "^1.10.1",
         "jquery": "^3.5.1",
